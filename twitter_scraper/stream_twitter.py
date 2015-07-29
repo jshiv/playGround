@@ -65,13 +65,15 @@ class StdOutListener(StreamListener):
 
 # In[7]:
 
+production = True
+stop = 1000
+try:
+    if sys.argv[1] == '-f':
+        production = False
+        stop = 4
+except:
+    pass
 
-if sys.argv[1] == '-f':
-    production = False
-    stop = 4
-else:
-    production = True
-    stop = 1000
     
 print 'production is ',production,' stop in: ',stop
 
